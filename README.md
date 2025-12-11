@@ -12,8 +12,24 @@ Hugo static site. The repo includes the editable Hugo sources and the generated 
 - `public/`: Generated site output (overwritten by `hugo`); do not edit by hand.
 
 ## Run and develop
-1. Install Hugo Extended (https://gohugo.io/installation/) and Go (needed to fetch the theme module).
-2. From the repo root, fetch the Ananke theme module: `hugo mod vendor` (or `hugo mod get` if you prefer using the cache).
-3. Start the dev server with drafts: `hugo server -D` (if port 1313 is busy, use `--port 1315 --bind 127.0.0.1`).
-4. Edit files under `content/en/` for text changes; add posts with `hugo new post/post_slug.md`.
-5. Build for production with `hugo`, which refreshes `public/`.
+Run these commands in your terminal after cloning:
+
+```sh
+# Install Hugo Extended and Go (follow https://gohugo.io/installation/ if you need platform specifics)
+# macOS example:
+brew install hugo go
+
+# From the repo root, download the theme module
+hugo mod vendor
+
+# Start the dev server with drafts (use a different port if 1313 is taken)
+hugo server -D --bind 127.0.0.1 --port 1313
+
+# Build the static site for production (outputs to public/)
+hugo
+```
+
+Edit content under `content/en/`. Add a post with:
+```sh
+hugo new post/post_slug.md
+```
